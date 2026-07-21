@@ -1,0 +1,50 @@
+KERNEL PARA NOTEBOOK DE VIDEO (Text-to-Video e Image-to-Video)
+
+1) Crear entorno virtual
+python3 -m venv .venv-video
+source .venv-video/bin/activate
+python -m pip install --upgrade pip
+
+2) Instalar librerias base
+pip install diffusers transformers accelerate safetensors
+pip install imageio imageio-ffmpeg matplotlib numpy pillow ipywidgets
+pip install jupyter ipykernel
+
+3) Registrar kernel en Jupyter
+python -m ipykernel install --user --name video-diffusion --display-name "Python (video-diffusion)"
+
+4) Verificacion rapida
+python -c "import torch; print('torch', torch.__version__, 'cuda', torch.cuda.is_available())"
+
+============================================================
+SECCION ESPECIAL: COMANDOS EXACTOS TORCH PARA CUDA EN TU MAQUINA
+============================================================
+
+Contexto detectado:
+- GPU: NVIDIA GeForce RTX 3080 Laptop GPU
+- Driver: 610.62
+- CUDA UMD reportado por nvidia-smi: 13.3
+
+Recomendacion practica para PyTorch en este entorno:
+- Usar wheels CUDA 12.4 (cu124), que suelen ser la opcion mas estable en Linux con drivers nuevos.
+
+A) Opcion recomendada (cu124)
+pip uninstall -y torch torchvision torchaudio
+pip cache purge
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
+
+B) Opcion alternativa (cu121), por compatibilidad
+pip uninstall -y torch torchvision torchaudio
+pip cache purge
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+
+C) Comprobar que quedo bien alineado
+python -c "import torch; print('torch', torch.__version__); print('cuda_ok', torch.cuda.is_available()); print('torch_cuda', torch.version.cuda); print('gpu', torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU')"
+
+Notas:
+- Ejecuta SOLO una opcion (A o B), no ambas.
+- Si A falla por resolucion de paquetes, prueba B.
+- Para video, evita instalar version CPU-only de torch.
+
+5) Seleccionar kernel en VS Code/Jupyter
+Selecciona: Python (video-diffusion)

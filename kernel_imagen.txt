@@ -1,0 +1,23 @@
+KERNEL PARA NOTEBOOK DE IMAGENES (Stable Diffusion y variantes)
+
+1) Crear entorno virtual
+python3 -m venv .venv-img
+source .venv-img/bin/activate
+python -m pip install --upgrade pip
+
+2) Instalar PyTorch con CUDA (recomendado cu124)
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cu124
+
+3) Instalar librerias del notebook de imagen
+pip install diffusers transformers accelerate safetensors
+pip install matplotlib numpy scipy pillow opencv-contrib-python ipywidgets
+pip install jupyter ipykernel
+
+4) Registrar kernel en Jupyter
+python -m ipykernel install --user --name img-diffusion --display-name "Python (img-diffusion)"
+
+5) Verificacion rapida
+python -c "import torch; print('torch', torch.__version__, 'cuda', torch.cuda.is_available())"
+
+6) En VS Code/Jupyter
+Selecciona el kernel: Python (img-diffusion)

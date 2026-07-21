@@ -1,0 +1,58 @@
+# Python bytecode and cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Notebook checkpoints
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Conda environments
+conda-env/
+.miniconda/
+.mamba/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Data and downloaded datasets
+/data/FashionMNIST/raw/
+/data/FashionMNIST/processed/
+
+# Generated outputs and artifacts
+*.mp4
+*.gif
+*.avi
+*.mov
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+
+# Python packaging
+build/
+dist/
+*.egg-info/
+
+# Jupyter and notebook runtime
+.nbconvert.ipynb

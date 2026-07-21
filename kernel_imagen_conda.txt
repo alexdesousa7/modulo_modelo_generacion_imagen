@@ -1,0 +1,23 @@
+KERNEL CONDA PARA NOTEBOOK DE IMAGENES
+Agregar -v1 al nombre para llevar un versionado para pruebas
+
+1) Crear entorno conda
+conda create -n img-diffusion-v1 python=3.11 -y
+conda activate img-diffusion-v1
+
+2) Instalar PyTorch con CUDA (recomendado cu124)
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
+
+3) Instalar librerias del notebook de imagen
+pip install diffusers transformers accelerate safetensors
+pip install matplotlib numpy scipy pillow opencv-contrib-python ipywidgets
+pip install jupyter ipykernel
+
+4) Registrar kernel Jupyter
+python -m ipykernel install --user --name img-diffusion-v1 --display-name "Python (img-diffusion-v1-conda)"
+
+5) Verificacion de GPU/CUDA
+python -c "import torch; print('torch', torch.__version__); print('cuda_ok', torch.cuda.is_available()); print('torch_cuda', torch.version.cuda); print('gpu', torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU')"
+
+6) Seleccionar kernel en VS Code/Jupyter
+Python (img-diffusion-conda)

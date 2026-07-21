@@ -1,0 +1,44 @@
+KERNEL CONDA PARA NOTEBOOK DE VIDEO
+
+1) Crear entorno conda
+conda create -n video-diffusion python=3.11 -y
+conda activate video-diffusion
+
+2) Instalar librerias base de video
+pip install diffusers transformers accelerate safetensors
+pip install imageio imageio-ffmpeg matplotlib numpy pillow ipywidgets
+pip install jupyter ipykernel
+
+3) Registrar kernel Jupyter
+python -m ipykernel install --user --name video-diffusion --display-name "Python (video-diffusion-conda)"
+
+============================================================
+SECCION ESPECIAL CUDA/PYTORCH PARA TU MAQUINA
+============================================================
+
+Contexto detectado:
+- GPU: NVIDIA GeForce RTX 3080 Laptop GPU
+- Driver: 610.62
+- CUDA UMD visible en nvidia-smi: 13.3
+
+Recomendacion principal: usar wheels cu124.
+
+A) Opcion recomendada (cu124)
+pip uninstall -y torch torchvision torchaudio
+pip cache purge
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
+
+B) Opcion alternativa (cu121), si A falla
+pip uninstall -y torch torchvision torchaudio
+pip cache purge
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+
+C) Comprobar instalacion final
+python -c "import torch; print('torch', torch.__version__); print('cuda_ok', torch.cuda.is_available()); print('torch_cuda', torch.version.cuda); print('gpu', torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU')"
+
+Notas:
+- Ejecuta solo una opcion: A o B.
+- Para video evita torch CPU-only.
+
+4) Seleccionar kernel en VS Code/Jupyter
+Python (video-diffusion-conda)
