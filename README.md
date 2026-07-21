@@ -42,9 +42,6 @@ También se documentan dos formas de preparar el entorno:
 - **1.uso_modelos_opensource.ipynb**  
   Notebook principal para uso de modelos open source, orientado a generación base de contenido con prompts.
 
-- **1.uso_modelos_opensource_bk.ipynb**  
-  Versión de respaldo/alternativa del flujo de uso de modelos open source.
-
 - **1.uso_modelos_opensource_video.ipynb**  
   Variante enfocada en generación o experimentación con video a partir de prompts/modelos generativos.
 
@@ -75,14 +72,9 @@ También se documentan dos formas de preparar el entorno:
 - **kernel_video.txt / kernel_video_conda.txt**  
   Guías de kernel para notebooks de video en modo venv y modo Conda.
 
-- **data/FashionMNIST/**  
-  Datos de ejemplo para experimentos de entrenamiento/pruebas.
-
 - **output*.png** y **video_estilo_prompt_cpu.mp4**  
   Resultados generados durante ejecuciones de los notebooks.
 
-- **Archivos PDF**  
-  Material de clase/apoyo teórico.
 
 ## Objetivo del repositorio
 
